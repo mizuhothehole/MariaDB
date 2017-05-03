@@ -3,7 +3,7 @@ Tring To Use MariaDB installed version 10.1.10 in XAMMP
 the MaeiaDB in installed in the folder here:
 [インストールしたフォルダー]/Applications/XAMPP/xamppfiles/bin/mysql
 
-1)MariaDB log
+1)MariaDB Schema
 
 Log:
 Starting MySQL Database...
@@ -248,7 +248,8 @@ MariaDB [test]> desc HOME_ACCOUNT;
 
 MariaDB [test]> 
 
-2)The user infomation in MariaDB and the mysql.user table
+2)User login-in and using mysql.user table in MariaDB
+
 Last login: Wed May  3 12:24:33 on ttys001
 ishiiryou-no-MacBook-Air:~ ishiiaya$ cd /Applications/XAMPP/xamppfiles/bin;
 ishiiryou-no-MacBook-Air:bin ishiiaya$ mysql -u root;
