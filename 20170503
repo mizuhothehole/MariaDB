@@ -328,3 +328,68 @@ MariaDB [test]> select * from mysql.user
 5 rows in set (0.01 sec)
 
 MariaDB [test]> MariaDB [test]> 
+
+3) data type in MariaDB
+
+ishiiryou-no-MacBook-Air:bin ishiiaya$ ./mysql -u root -p -h localhost test
+Enter password: 
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 4
+Server version: 10.1.10-MariaDB Source distribution
+
+Copyright (c) 2000, 2015, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [test]> show tables;
+Empty set (0.01 sec)
+
+MariaDB [test]> create table HOME_ACCOUNT (ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,ISSUE_DATE DATE,ISSUE_TITLE VARCHAR(100),ISSUE_AMOUNT VARCHAR(10));
+Query OK, 0 rows affected (0.04 sec)
+
+MariaDB [test]> show tables;                                                    +----------------+
+| Tables_in_test |
++----------------+
+| HOME_ACCOUNT   |
++----------------+
+1 row in set (0.01 sec)
+
+MariaDB [test]> desc HOME_ACCOUNT;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| ID           | int(11)      | NO   | PRI | NULL    | auto_increment |
+| ISSUE_DATE   | date         | YES  |     | NULL    |                |
+| ISSUE_TITLE  | varchar(100) | YES  |     | NULL    |                |
+| ISSUE_AMOUNT | varchar(10)  | YES  |     | NULL    |                |
++--------------+--------------+------+-----+---------+----------------+
+4 rows in set (0.01 sec)
+
+MariaDB [test]> insert into HOME_ACCOUNT values (1,2017-05-03,"food",300);
+Query OK, 1 row affected, 1 warning (0.02 sec)
+
+MariaDB [test]> select * from HOME_ACCOUNT;
++----+------------+-------------+--------------+
+| ID | ISSUE_DATE | ISSUE_TITLE | ISSUE_AMOUNT |
++----+------------+-------------+--------------+
+|  1 | 0000-00-00 | food        | 300          |
++----+------------+-------------+--------------+
+1 row in set (0.02 sec)
+
+MariaDB [test]> update HOME_ACCOUNT set ISSUR_DATE = "2017-05-03";
+ERROR 1054 (42S22): Unknown column 'ISSUR_DATE' in 'field list'
+MariaDB [test]> update HOME_ACCOUNT set ISSUE_DATE = "2017-05-03";
+Query OK, 1 row affected (0.01 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+MariaDB [test]> select * from HOME_ACCOUNT;
++----+------------+-------------+--------------+
+| ID | ISSUE_DATE | ISSUE_TITLE | ISSUE_AMOUNT |
++----+------------+-------------+--------------+
+|  1 | 2017-05-03 | food        | 300          |
++----+------------+-------------+--------------+
+1 row in set (0.00 sec)
+
+MariaDB [test]> 
+
+
